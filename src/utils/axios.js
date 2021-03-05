@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Toast } from 'vant'
 
 // 本次项目的请求地址为 api.newbee.ltd/api/v1 且开发环境和生产环境都用一套，这里就不作区分了
-axios.defaults.baseURL = process.env.NODE_ENV == 'development' ? '//api.newbee.ltd/api/v1' : '//api.newbee.ltd/api/v1'
+axios.defaults.baseURL = process.env.NODE_ENV == 'development' ? '//47.99.134.126:28019/api/v1' : '//47.99.134.126:28019/api/v1'
 // 跨域请求是要不要携带cookie，本课程没有跨域请求的情况
 axios.defaults.withCredentials = true
 axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest'

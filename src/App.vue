@@ -1,19 +1,13 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-    </div>-->
-    <simpleHeader title="测试"></simpleHeader>
     <transition :name="transitionName">
       <router-view class="router-view" />
     </transition>
-    <navBar></navBar>
+    <navBar v-if="isShowNav"></navBar>
   </div>
 </template>
 <script>
 import navBar from "@/components/NavBar.vue";
-import simpleHeader from "@/components/SimpleHeader.vue";
 export default {
   data() {
     return {
@@ -24,7 +18,6 @@ export default {
   },
   components: {
     navBar,
-    simpleHeader
   },
   watch: {
     $route(to, from) {
@@ -56,7 +49,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
 }
 
