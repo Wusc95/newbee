@@ -46,7 +46,7 @@ export default {
   methods: {
     // 获取用户信息
     async getInfo() {
-      let res = await getUserInfo();
+      let res = await this.$api.user.getUserInfo();
       res.resultCode == 200 ? (this.user = res.data) : Toast.fail(res.message);
     }
   },

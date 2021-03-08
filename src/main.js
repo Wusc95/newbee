@@ -2,12 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import api from '@/api'
 import md5 from 'js-md5'
 import 'lib-flexible/flexible'
 
 // 按需引入vant
 import { Button,Form,Field,Toast,ActionSheet,Icon   } from 'vant'
-Vue.use(Button).use(Form).use(Field).use(Toast).use(ActionSheet).use(Icon );
+Vue.use(api).use(Button).use(Form).use(Field).use(Toast).use(ActionSheet).use(Icon );
 
 Vue.config.productionTip = false
 
@@ -19,3 +20,4 @@ new Vue({
 
 
 Vue.prototype.$md5=md5;
+window.vRouter = router

@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import { login, register } from "@/service/user";
+// import { login, register } from "@/service/user";
 import { setLocal, getLocal } from "@/common/js/utils";
 import { Toast } from "vant";
 import Verify from "vue2-verify";
@@ -121,17 +121,20 @@ export default {
       }
 
       if (this.type == "login") {
-        const { data, resultCode } = await login({
-          loginName: values.username,
-          passwordMd5: this.$md5(values.password)
+        const { data, resultCode } = await this.$api.user.login({
+          data: {
+            loginName: values.username,
+            passwordMd5: this.$md5(values.password)
+          }
         });
-        console.log(data, resultCode);
         if (resultCode == 200) {
           setLocal("token", data);
-          window.location.href = "/";
+          this.$router.push({
+            name:'/'
+          })
         }
       } else {
-        register({
+        this.$api.user.register({
           loginName: values.username1,
           password: values.password1
         }).then(e => {

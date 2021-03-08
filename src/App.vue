@@ -21,7 +21,7 @@ export default {
   },
   watch: {
     $route(to, from) {
-      console.log(to, from, "wsc");
+      // console.log(to, from, "wsc");
       if(this.ShowMenuList.includes(to.path)){
         this.isShowNav = true;
       }else{
