@@ -3,12 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import api from '@/api'
+import '@/utils/filter'
 import md5 from 'js-md5'
 import 'lib-flexible/flexible'
 
 // 按需引入vant
-import { Button,Form,Field,Toast,ActionSheet,Icon   } from 'vant'
-Vue.use(api).use(Button).use(Form).use(Field).use(Toast).use(ActionSheet).use(Icon );
+import { Button,Form,Field,Toast,ActionSheet,Icon,Swipe,SwipeItem,Notify    } from 'vant'
+Vue.use(api).use(Button).use(Form).use(Field).use(Toast).use(ActionSheet).use(Icon ).use(Swipe).use(SwipeItem ).use(Notify);
 
 Vue.config.productionTip = false
 

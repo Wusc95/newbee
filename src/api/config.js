@@ -40,5 +40,13 @@ export default {
             method: 'post'
         }
 
+    },
+    // 首页
+    home: {
+        // 获取首页数据
+        homeInfo: {
+            url: '/index-infos',
+            method: 'get'
+        },
     }
 }
