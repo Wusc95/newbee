@@ -48,5 +48,12 @@ export default {
             url: '/index-infos',
             method: 'get'
         },
+    },
+    // 商品分类模块
+    goods: {
+        getCategory: {
+            url: '/categories',
+            method: 'get'
+        }
     }
 }
