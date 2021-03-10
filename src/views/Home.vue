@@ -10,7 +10,7 @@
       <div class="header-search">
         <span class="app-name">每日优选</span>
         <i class="nbicon nbanjianfengexian"></i>
-        <router-link tag="span" class="search-title" to="./product-list">山河无恙，人间皆安</router-link>
+        <router-link tag="span" class="search-title" to="./category">山河无恙，人间皆安</router-link>
       </div>
       <router-link class="login" tag="span" to="./login" v-if="!isLogin">登录</router-link>
       <router-link class="login" tag="span" to="./user" v-else>

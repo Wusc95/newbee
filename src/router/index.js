@@ -53,6 +53,14 @@ const routes = [
       index: 1
     }
   },
+  {
+    path: '/product-list',
+    name: 'product-list',
+    component: () => import('../views/ProductList.vue'),
+    meta: {
+      index: 2
+    }
+  },
 ]
 
 const router = new VueRouter({

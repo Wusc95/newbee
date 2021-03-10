@@ -130,19 +130,24 @@ export default {
         if (resultCode == 200) {
           setLocal("token", data);
           this.$router.push({
-            name:'/'
-          })
+            name: "/"
+          });
         }
       } else {
-        this.$api.user.register({
-          loginName: values.username1,
-          password: values.password1
-        }).then(e => {
-          if (e.resultCode == 200) {
-            Toast.success("注册成功");
-            this.type = "login";
-          }
-        });
+        console.log(values.username1, values.password1, "注册");
+        this.$api.user
+          .register({
+            data: {
+              loginName: values.username1,
+              password: values.password1
+            }
+          })
+          .then(e => {
+            if (e.resultCode == 200) {
+              Toast.success("注册成功");
+              this.type = "login";
+            }
+          });
       }
     },
     // 登录注册切换
