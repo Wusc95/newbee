@@ -90,6 +90,7 @@ export default {
     },
     selectProduct(item) {
       // this.$router.push({ path: `product-list?categoryId=${item.categoryId}` });
+      console.log('分类',item)
       this.$router.push({
         name:'product-list',
         query:{

@@ -34,7 +34,7 @@
           :key="index"
           @click="productDetail(item)"
         >
-          <img :src="`//api.newbee.ltd${item.goodsCoverImg}`" />
+          <img :src="item.goodsCoverImg | prefix" />
           <div class="product-info">
             <p class="name">{{item.goodsName}}</p>
             <p class="subtitle">{{item.goodsIntro}}</p>
@@ -64,7 +64,7 @@ export default {
     };
   },
   created() {
-    console.log(this.from, "casnhu");
+    console.log(this.from, this.categoryId,"casnhu");
   },
   methods: {
     async init() {
@@ -91,7 +91,7 @@ export default {
       } = await this.$api.goods.goodSearch({
         params: {
           pageNumber: this.page,
-          goodsCategoryId: categoryId,
+          goodsCategoryId: this.categoryId,
           keyword: this.keyword,
           orderBy: this.orderBy
         }

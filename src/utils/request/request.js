@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Toast } from 'vant'
 
 const instance = axios.create({
-    baseURL: process.env.NODE_ENV == 'development' ? '//localhost:28019/api/v1' : '//localhost:28019/api/v1',
+    baseURL: process.env.NODE_ENV == 'development' ? '//8.129.233.3:28019/api/v1' : '//8.129.233.3:28019/api/v1',
     timeout: 600000,
     withCredentials: true,
     headers: {
