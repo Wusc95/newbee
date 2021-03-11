@@ -1,4 +1,5 @@
 const path = require("path");
+const vConsolePlugin = require("vconsole-webpack-plugin")
 const resolve = dir => path.join(__dirname, dir);
 module.exports = {
   lintOnSave: false,
@@ -10,4 +11,17 @@ module.exports = {
       .set("@base", resolve("baseConfig"))
       .set("@public", resolve("public"));
   },
+  configureWebpack: config => {
+    let plugins = [];
+
+    if (process.env.NODE_ENV !== 'production') {
+      plugins.push(
+        new vConsolePlugin({
+          filter: [], // 需要过滤的入口文件
+          enable: false // 发布代码前记得改回 false
+        })
+      );
+    }
+    config.plugins = [...config.plugins, ...plugins];
+  }
 };
