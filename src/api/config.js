@@ -54,6 +54,10 @@ export default {
         getCategory: {
             url: '/categories',
             method: 'get'
+        },
+        goodSearch: {
+            url: '/search',
+            method: 'get'
         }
     }
 }

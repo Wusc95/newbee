@@ -2,9 +2,10 @@
   <div class="category-box">
     <header class="category-header" wrap>
       <i class="nbicon nbfanhui" @click="$router.go(-1)"></i>
-      <div class="header-search">
+      <div class="header-search" @click="goProductList">
         <i class="nbicon nbsousuo"></i>
-        <router-link tag="span" class="search-title" to="./product-list?from=category">全场优惠处理</router-link>
+        <!-- <router-link tag="span" class="search-title" to="./product-list?from=category">全场优惠处理</router-link> -->
+        <span class="search-title">全场优惠处理</span>
       </div>
       <i class="nbicon nbgengduo"></i>
     </header>
@@ -88,7 +89,22 @@ export default {
       this.$refs.searchWrap.style.height = $screenHeight - 100 + "px";
     },
     selectProduct(item) {
-      this.$router.push({ path: `product-list?categoryId=${item.categoryId}` });
+      // this.$router.push({ path: `product-list?categoryId=${item.categoryId}` });
+      this.$router.push({
+        name:'product-list',
+        query:{
+          from:'category',
+          categoryId:item.categoryId
+        }
+      })
+    },
+    goProductList(){
+      this.$router.push({
+        name:'product-list',
+        query:{
+          from:'category'
+        }
+      })
     }
   },
   components: {

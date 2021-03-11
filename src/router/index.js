@@ -57,6 +57,7 @@ const routes = [
     path: '/product-list',
     name: 'product-list',
     component: () => import('../views/ProductList.vue'),
+    props: route => route.query,
     meta: {
       index: 2
     }

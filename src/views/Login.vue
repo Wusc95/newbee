@@ -130,11 +130,10 @@ export default {
         if (resultCode == 200) {
           setLocal("token", data);
           this.$router.push({
-            name: "/"
+            name: "home"
           });
         }
       } else {
-        console.log(values.username1, values.password1, "注册");
         this.$api.user
           .register({
             data: {
