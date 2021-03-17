@@ -62,6 +62,15 @@ const routes = [
       index: 2
     }
   },
+  {
+    path: '/product-detail',
+    name: 'product-detail',
+    component: () => import('../views/ProductDetail.vue'),
+    props: route => route.query,
+    meta: {
+      index: 2
+    }
+  },
 ]
 
 const router = new VueRouter({

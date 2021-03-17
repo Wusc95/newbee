@@ -58,6 +58,21 @@ export default {
         goodSearch: {
             url: '/search',
             method: 'get'
+        },
+        goodsDetail: {
+            url: '/goods/detail',
+            method: 'get'
         }
+    },
+    // 购物车模块
+    cart: {
+        addCart: {
+            url: '/shop-cart',
+            method: 'post'
+        },
+        getCart: {
+            url: '/shop-cart',
+            method: 'get'
+        },
     }
 }

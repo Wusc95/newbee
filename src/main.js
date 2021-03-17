@@ -8,8 +8,8 @@ import md5 from 'js-md5'
 import 'lib-flexible/flexible'
 
 // 按需引入vant
-import { Button,Form,Field,Toast,ActionSheet,Icon,Swipe,SwipeItem,Notify,Tab, Tabs,PullRefresh,List} from 'vant'
-Vue.use(api).use(Button).use(Form).use(Field).use(Toast).use(ActionSheet).use(Icon ).use(Swipe).use(SwipeItem ).use(Notify).use(Tab).use(Tabs).use(PullRefresh).use(List);
+import { Button,Form,Field,Toast,ActionSheet,Icon,Swipe,SwipeItem,Notify,Tab, Tabs,PullRefresh,List,GoodsAction, GoodsActionIcon, GoodsActionButton} from 'vant'
+Vue.use(api).use(Button).use(Form).use(Field).use(Toast).use(ActionSheet).use(Icon ).use(Swipe).use(SwipeItem ).use(Notify).use(Tab).use(Tabs).use(PullRefresh).use(List).use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton);
 
 Vue.config.productionTip = false
 

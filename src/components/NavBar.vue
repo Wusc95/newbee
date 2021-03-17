@@ -10,7 +10,8 @@
         <span>分类</span>
       </router-link>
       <router-link tag="li" class="nav-list-item" to="cart">
-        <i class="nbicon nbgouwuche"></i>
+        <!-- <i class="nbicon nbgouwuche"></i> -->
+        <van-icon name="shopping-cart-o" :badge="!count ? '' : count" />
         <span>购物车</span>
       </router-link>
       <router-link tag="li" class="nav-list-item" to="user">
@@ -22,7 +23,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "NavBar",
+  mounted() {
+    const token = localStorage.getItem("token");
+    token ? this.$store.dispatch("updateCart") : "";
+  },
+  computed: {
+    count() {
+      return this.$store.state.cartCount;
+    }
+  }
+};
 </script>
 
 <style lang="less" scope>
@@ -57,6 +69,10 @@ export default {};
       }
       span {
         font-size: 12px;
+      }
+      .van-icon-shopping-cart-o {
+        margin: 0 auto;
+        margin-bottom: 2px;
       }
     }
   }

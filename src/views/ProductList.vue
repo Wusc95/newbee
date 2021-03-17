@@ -103,7 +103,13 @@ export default {
       if (this.page >= data.totalPage) this.finished = true;
     },
     productDetail(item) {
-      this.$router.push({ path: `product/${item.goodsId}` });
+      // this.$router.push({ path: `product/${item.goodsId}` });
+      this.$router.push({
+        name:'product-detail',
+        query:{
+          id:item.goodsId
+        }
+      })
     },
 
     getSearch() {
