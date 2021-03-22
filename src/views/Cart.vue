@@ -120,7 +120,10 @@ export default {
       }
     },
     // 结算
-    onSubmit() {}
+    onSubmit() {
+      const params = JSON.stringify(this.result);
+      // this.$router.push({ path: `create-order?cartItemIds=${params}` });
+    }
   },
   components: {
     sHeader
