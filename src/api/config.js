@@ -70,9 +70,22 @@ export default {
             url: '/shop-cart',
             method: 'post'
         },
+        modifyCart: {
+            url: '/shop-cart',
+            method: 'put'
+        },
+
+
         getCart: {
             url: '/shop-cart',
             method: 'get'
         },
+
+        
+        deleteCartItem: {
+            url: '/shop-cart',
+            method: 'delete'
+        },
+        
     }
 }

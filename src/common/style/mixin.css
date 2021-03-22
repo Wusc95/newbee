@@ -55,3 +55,7 @@ body.dialog-open {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+.van-checkbox__icon--checked .van-icon {
+  background-color: #e31d1a;
+  border-color: #e31d1a;
+}
