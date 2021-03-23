@@ -71,6 +71,24 @@ const routes = [
       index: 2
     }
   },
+  {
+    path: '/create-order',
+    name: 'create-order',
+    component: () => import('../views/CreateOrder.vue'),
+    props: route => route.query,
+    meta: {
+      index: 2
+    }
+  },
+  {
+    path: '/address-edit',
+    name: 'address-edit',
+    component: () => import('../views/AddressEdit.vue'),
+    props: route => route.query,
+    meta: {
+      index: 2
+    }
+  },
 ]
 
 const router = new VueRouter({

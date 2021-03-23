@@ -1,4 +1,5 @@
 import { method } from 'lodash'
+import { AddressEdit } from 'vant';
 
 /**
  * 按模块分类
@@ -81,11 +82,44 @@ export default {
             method: 'get'
         },
 
-        
+
         deleteCartItem: {
             url: '/shop-cart',
             method: 'delete'
         },
-        
+
+        getByCartItemIds: {
+            url: '/shop-cart/settle',
+            method: 'get'
+        }
+
+    },
+
+    // 地址栏模块
+    address: {
+        addAddress: {
+            url: '/address',
+            method: 'post'
+        },
+        editAddress: {
+            url: '/address',
+            method: 'put'
+        },
+        deleteAddress: {
+            url: '/address',
+            method: 'delete'
+        },
+        getDefaultAddress: {
+            url: '/address/default',
+            method: 'get'
+        },
+        getAddressList: {
+            url: '/address',
+            method: 'get'
+        },
+        getAddressDetail: {
+            url: '/address',
+            method: 'get'
+        },
     }
 }

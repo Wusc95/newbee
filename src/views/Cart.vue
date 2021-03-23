@@ -78,7 +78,6 @@ export default {
         this.result = data.map(item => item.cartItemId);
         this.$toast.clear();
       }
-      console.log(data);
     },
     // 删除商品
     async deleteGood(id) {
@@ -123,6 +122,12 @@ export default {
     onSubmit() {
       const params = JSON.stringify(this.result);
       // this.$router.push({ path: `create-order?cartItemIds=${params}` });
+      this.$router.push({
+        name:'create-order',
+        query:{
+          'cartItemIds':params
+        }
+      })
     }
   },
   components: {

@@ -8,8 +8,8 @@ import md5 from 'js-md5'
 import 'lib-flexible/flexible'
 
 // 按需引入vant
-import { Button,Form,Field,Toast,ActionSheet,Icon,Swipe,SwipeItem,Notify,Tab, Tabs,PullRefresh,List,GoodsAction, GoodsActionIcon, GoodsActionButton,SwipeCell,CheckboxGroup,Checkbox,SubmitBar,Stepper} from 'vant'
-Vue.use(api).use(Button).use(Form).use(Field).use(Toast).use(ActionSheet).use(Icon ).use(Swipe).use(SwipeItem ).use(Notify).use(Tab).use(Tabs).use(PullRefresh).use(List).use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton).use(SwipeCell).use(CheckboxGroup).use(Checkbox).use(SubmitBar).use(Stepper);
+import { Button, Form, Field, Toast, ActionSheet, Icon, Swipe, SwipeItem, Notify, Tab, Tabs, PullRefresh, List, GoodsAction, GoodsActionIcon, GoodsActionButton, SwipeCell, CheckboxGroup, Checkbox, SubmitBar, Stepper, Popup, Card } from 'vant'
+Vue.use(api).use(Button).use(Form).use(Field).use(Toast).use(ActionSheet).use(Icon).use(Swipe).use(SwipeItem).use(Notify).use(Tab).use(Tabs).use(PullRefresh).use(List).use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton).use(SwipeCell).use(CheckboxGroup).use(Checkbox).use(SubmitBar).use(Stepper).use(Popup).use(Card);
 
 Vue.config.productionTip = false
 
@@ -20,5 +20,5 @@ new Vue({
 }).$mount('#app')
 
 
-Vue.prototype.$md5=md5;
+Vue.prototype.$md5 = md5;
 window.vRouter = router
