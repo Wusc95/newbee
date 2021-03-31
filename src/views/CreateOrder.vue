@@ -3,10 +3,10 @@
     <s-header title="创建订单"></s-header>
     <div class="address-wrap">
       <div class="name">
-        <span>我是昵称</span>
-        <span>15758394732</span>
+        <span style="marginRight:20px">{{address.userName}}</span>
+        <span>{{address.userPhone}}</span>
       </div>
-      <div class="address">{{address?address:'请选择收货地址'}}</div>
+      <div class="detailAddress">{{address?address.detailAddress:'请选择收货地址'}}</div>
       <van-icon class="arrow" name="arrow" @click="goTo"/>
     </div>
     <div class="good">
@@ -65,16 +65,14 @@ export default {
       const { data: address } = this.addressId
         ? await this.$api.address.getAddressDetail(this.addressId)
         : await this.$api.address.getDefaultAddress();
-      this.address = address;
-      console.log(address, "地址");
-      console.log(list, "数据");
+      this.address = address[0];
       this.cartList = list;
       this.$toast.clear();
     },
     // 跳转到地址编辑
     goTo(){
       this.$router.push({
-        name:"address-edit",
+        name:"address",
         query:{
           "cartItemIds":JSON.stringify(this._cartItemIds)
         }
@@ -109,7 +107,7 @@ export default {
     color: #222333;
     padding: 15px;
     .name,
-    .address {
+    .detailAddress {
       margin: 10px 0;
     }
     .arrow {

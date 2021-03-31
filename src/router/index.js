@@ -89,6 +89,15 @@ const routes = [
       index: 2
     }
   },
+  {
+    path: '/address',
+    name: 'address',
+    component: () => import('../views/Address.vue'),
+    props: route => route.query,
+    meta: {
+      index: 2
+    }
+  },
 ]
 
 const router = new VueRouter({
