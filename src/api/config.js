@@ -39,7 +39,11 @@ export default {
         register: {
             url: '/user/register',
             method: 'post'
-        }
+        },
+        editUserInfo: {
+            url: '/user/info',
+            method: 'put'
+        },
 
     },
     // 首页
@@ -140,19 +144,19 @@ export default {
             method: 'get'
         },
         // 取消订单
-        cancelOrder:{
-            url:'/order',
-            method:'put'
+        cancelOrder: {
+            url: '/order',
+            method: 'put'
         },
         // 确认订单
-        confirmOrder:{
-            url:'/order',
-            method:'get'
+        confirmOrder: {
+            url: '/order',
+            method: 'get'
         },
         // 支付接口
-        payOrder:{
-            url:'/paySuccess',
-            method:'get'
+        payOrder: {
+            url: '/paySuccess',
+            method: 'get'
         }
     }
 }

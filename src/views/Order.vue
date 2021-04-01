@@ -123,6 +123,8 @@ export default {
 .order-box {
   .order-tab {
     margin-top: 44px;
+    position: fixed;
+    z-index: 888;
   }
   .order-list-refresh {
     margin-top: 68px;

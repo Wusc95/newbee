@@ -12,15 +12,15 @@
       </div>
     </div>
     <ul class="user-list">
-      <li>
+      <li @click="goTo('order')">
         <span>我的订单</span>
         <van-icon name="arrow" />
       </li>
-      <li>
+      <li @click="goTo('setting')">
         <span>账号管理</span>
         <van-icon name="arrow" />
       </li>
-      <li>
+      <li @click="goTo('address')">
         <span>地址管理</span>
         <van-icon name="arrow" />
       </li>
@@ -47,7 +47,19 @@ export default {
     // 获取用户信息
     async getInfo() {
       let res = await this.$api.user.getUserInfo();
-      res.resultCode == 200 ? (this.user = res.data) : Toast.fail(res.message);
+      res.resultCode == 200 ? (this.user = res.data) : this.$toast.fail(res.message);
+    },
+    goTo(name){
+      let params={};
+      if(name == 'address'){
+        params={
+          'from':'mine'
+        }
+      }
+      this.$router.push({
+        name:name,
+        query:params
+      })
     }
   },
   created() {
@@ -66,7 +78,7 @@ export default {
     width: 94%;
     margin: 10px;
     height: 115px;
-    background: linear-gradient(90deg, @primary, #51c7c7);
+    background: linear-gradient(90deg, #269090, #51c7c7);
     box-shadow: 0 2px 5px #269090;
     border-radius: 6px;
     margin-top: 50px;

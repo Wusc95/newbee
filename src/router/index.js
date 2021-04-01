@@ -116,6 +116,15 @@ const routes = [
       index: 2
     }
   },
+  {
+    path: '/setting',
+    name: 'setting',
+    component: () => import('../views/Setting.vue'),
+    props: route => route.query,
+    meta: {
+      index: 2
+    }
+  },
 ]
 
 const router = new VueRouter({
