@@ -98,6 +98,24 @@ const routes = [
       index: 2
     }
   },
+  {
+    path: '/order',
+    name: 'order',
+    component: () => import('../views/Order.vue'),
+    props: route => route.query,
+    meta: {
+      index: 2
+    }
+  },
+  {
+    path: '/orderDetail',
+    name: 'orderDetail',
+    component: () => import('../views/OrderDetail.vue'),
+    props: route => route.query,
+    meta: {
+      index: 2
+    }
+  },
 ]
 
 const router = new VueRouter({

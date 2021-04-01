@@ -13,15 +13,25 @@ export default {
     title: {
       type: String,
       default: ""
+    },
+    back: {
+      type: String,
+      default: ""
     }
   },
   methods: {
     goBack() {
-      this.$router.go(-1);
+      // this.$router.go(-1);
+      if (!this.back) {
+        this.$router.go(-1);
+      } else {
+        this.$router.push({
+          name:this.back
+        })
+      }
+      this.$emit("callback");
     },
-    more(){
-      
-    }
+    more() {}
   }
 };
 </script>

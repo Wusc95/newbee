@@ -121,5 +121,38 @@ export default {
             url: '/address',
             method: 'get'
         },
+    },
+    // 订单管理
+    order: {
+        // 创建订单
+        createOrder: {
+            url: '/saveOrder',
+            method: 'post'
+        },
+        // 获取订单列表
+        getOrderList: {
+            url: '/order',
+            method: 'get'
+        },
+        // 根据id获取订单详情
+        getOrderDetail: {
+            url: '/order',
+            method: 'get'
+        },
+        // 取消订单
+        cancelOrder:{
+            url:'/order',
+            method:'put'
+        },
+        // 确认订单
+        confirmOrder:{
+            url:'/order',
+            method:'get'
+        },
+        // 支付接口
+        payOrder:{
+            url:'/paySuccess',
+            method:'get'
+        }
     }
 }

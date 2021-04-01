@@ -3,11 +3,13 @@
     <s-header title="创建订单"></s-header>
     <div class="address-wrap">
       <div class="name">
-        <span style="marginRight:20px">{{address.userName}}</span>
-        <span>{{address.userPhone}}</span>
+        <span style="marginRight:20px">{{address?address.userName:'昵称'}}</span>
+        <span>{{address?address.userPhone:'联系电话'}}</span>
       </div>
-      <div class="detailAddress">{{address?address.detailAddress:'请选择收货地址'}}</div>
-      <van-icon class="arrow" name="arrow" @click="goTo"/>
+      <div
+        class="detailAddress"
+      >{{address?address.provinceName+address.cityName+address.regionName+address.detailAddress:'请选择收货地址'}}</div>
+      <van-icon class="arrow" name="arrow" @click="goTo" />
     </div>
     <div class="good">
       <div class="good-item" v-for="item in cartList" :key="item.goodsId">
@@ -24,8 +26,26 @@
         <span>商品总计</span>
         <span>¥{{total}}</span>
       </div>
-      <van-button class="pay-btn" color="#1baeae" type="primary" block>生成订单</van-button>
+      <van-button class="pay-btn" color="#1baeae" type="primary" block @click="createOrder">生成订单</van-button>
     </div>
+    <van-popup
+      v-model="showPay"
+      @close="close"
+      :close-on-click-overlay="false"
+      position="bottom"
+      :style="{ height: '30%' }"
+      closeable
+    >
+      <div :style="{ width: '90%', margin: '0 auto', padding: '50px 0' }">
+        <van-button
+          :style="{ marginBottom: '10px' }"
+          color="#1989fa"
+          block
+          @click="payOrder(1)"
+        >支付宝支付</van-button>
+        <van-button color="#4fc08d" block @click="payOrder(2)">微信支付</van-button>
+      </div>
+    </van-popup>
   </div>
 </template>
 
@@ -39,7 +59,9 @@ export default {
     return {
       cartList: [],
       address: "",
-      _cartItemIds:'',
+      _cartItemIds: "",
+      showPay: false,
+      orderNo: ""
     };
   },
   created() {
@@ -65,18 +87,59 @@ export default {
       const { data: address } = this.addressId
         ? await this.$api.address.getAddressDetail(this.addressId)
         : await this.$api.address.getDefaultAddress();
-      this.address = address[0];
+
+      address ? (this.address = address[0]) : "";
       this.cartList = list;
       this.$toast.clear();
     },
     // 跳转到地址编辑
-    goTo(){
+    goTo() {
       this.$router.push({
-        name:"address",
-        query:{
-          "cartItemIds":JSON.stringify(this._cartItemIds)
+        name: "address",
+        query: {
+          cartItemIds: JSON.stringify(this._cartItemIds)
         }
-      })
+      });
+    },
+    // 生成订单
+    async createOrder() {
+      if (!this.address) {
+        this.$toast("请选择收货地址");
+        return;
+      }
+      const params = {
+        addressId: this.address.addressId,
+        cartItemIds: this.cartList.map(item => item.cartItemId)
+      };
+      const { data, resultCode } = await this.$api.order.createOrder({
+        data: params
+      });
+      if (resultCode == 200) {
+        this.showPay = true;
+        this.orderNo = data;
+      }
+    },
+    close() {
+      // this.$router.push({
+      //   name: "order"
+      // });
+      this.showPay = false;
+    },
+    async payOrder(type) {
+      this.$toast.loading({
+        message: "支付中...",
+        forbidClick: true
+      });
+      await this.$api.order.payOrder({
+        params: {
+          orderNo: this.orderNo,
+          payType: type
+        }
+      });
+      this.$router.push({
+        name: "order"
+      });
+      this.$toast.clear();
     }
   },
   components: {

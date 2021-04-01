@@ -1,6 +1,6 @@
 <template>
-  <div class="address">
-    <s-header title="地址管理"></s-header>
+  <div class="addressInfo">
+    <s-header title="地址管理" :back="'user'"></s-header>
     <div class="address-item">
       <van-address-list
         v-if="from !== 'mine'"
@@ -25,7 +25,7 @@
 <script>
 import sHeader from "@/components/SimpleHeader.vue";
 export default {
-  name: "address",
+  name: "addressInfo",
   props: ["from","cartItemIds"],
   data() {
     return {
@@ -86,7 +86,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.address {
+.addressInfo {
   .address-item {
     margin-top: 44px;
   }
